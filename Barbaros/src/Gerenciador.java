@@ -6,7 +6,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Gerenciador {
+//Classes internas
+import src.Graph;
+
+
+
+public class Gerenciador{
 
     private Guerreiro raiz = null;
     private ArrayList<String> linhas = new ArrayList<>();
@@ -17,7 +22,7 @@ public class Gerenciador {
 
 
     public void carregarTeste(String caso) {
-        Path path2 = Paths.get("casos/caso"+ caso +".txt");
+        Path path2 = Paths.get("Barbaros/casos/caso"+ caso +".txt");
         try (Scanner sc = new Scanner(Files.newBufferedReader(
                 path2, Charset.forName("utf8"))).useDelimiter("[\n]")) {
 
@@ -91,7 +96,7 @@ public class Gerenciador {
                 continue;
             }
             String[] linhaSeparada = linha.split("\\s+");
-            graph.createConnection(linhaSeparada[0],linhaSeparada[1w]);
+            graph.createConnection(linhaSeparada[0],linhaSeparada[1]);
         }
         graph.geraArquivo(caso);
 

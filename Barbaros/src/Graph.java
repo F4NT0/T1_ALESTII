@@ -7,6 +7,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+//imports internos
+import src.Connection;
+
 public class Graph {
     private ArrayList<String> lista;
     private String inicio,fim;
@@ -50,9 +53,9 @@ public class Graph {
      * @param caso
      */
     public void geraArquivo(String caso){
-        File pastaItens = new File("Graph");
+        File pastaItens = new File("Barbaros/Graph");
         if(!pastaItens.exists())pastaItens.mkdir();
-        Path path1 = Paths.get("Graph/Caso" + caso + ".gv");
+        Path path1 = Paths.get("Barbaros/Graph/Caso" + caso + ".gv");
         try (PrintWriter arquivo = new PrintWriter(Files.newBufferedWriter(path1, Charset.forName("utf8")))) {
             for(String s: getDiGraph()){
                 arquivo.println(s);
